@@ -1032,7 +1032,9 @@
       </div>
 
       <div class="text-center text-blue-600 text-base font-medium">
-        <p>Sebenarnya kami bingung nulis apa, jadi simak videonya saja ya! 💙</p>
+        <p>
+          Sebenarnya kami bingung nulis apa, jadi simak videonya saja ya! 💙
+        </p>
       </div>
     </div>
 
@@ -1043,15 +1045,15 @@
         class="video-wrapper w-full max-w-3xl aspect-video cursor-pointer"
         id="video-wrapper"
       >
-        <!-- Replace this with your actual video -->
-        <video
-          id="baby-video"
+        <!-- Embed YouTube video using iframe -->
+        <iframe
           class="w-full h-full object-cover rounded-lg"
-          controls=""
-        >
-          <source src="main.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          src="https://www.youtube.com/embed/PgyPELGlTJA"
+          title="YouTube video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
 
@@ -1180,5 +1182,20 @@
         visibility: hidden;
       "
     ></iframe>
+    <script>
+      document
+        .getElementById("close-video")
+        .addEventListener("click", function () {
+          // Sembunyikan kontainer video
+          document.getElementById("video-page").style.display = "none";
+  
+          // Hentikan pemutaran video jika iframe YouTube
+          const iframe = document.querySelector("#video-wrapper iframe");
+          if (iframe) {
+            const iframeSrc = iframe.src;
+            iframe.src = iframeSrc; // Reset iframe untuk menghentikan video
+          }
+        });
+    </script>
   </body>
 </html>
